@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mynewmovie">
+        New Movie 
+      </button>
+     </div>
+     </div>
+     <br>
+     <hr>
+     <div class="row" id="container_movies"> 
+      <%= render @movies %>
+    </div>
+
+    <%= form_for(@movie, remote: true) do |f| %>
+    <div class="modal fade" id="mynewmovie" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Movie</h4>
+            </div>
+            <div class="modal-body">
+              <div class="field">
+                <%= f.label :title %><br>
+                <%= f.text_area :title, class: "form-control movie_title", :placeholder => "Give The proper Title of the movie"  %>
+                </div>
+                <div class="field">
+                <%= f.label :description %><br>
+                <%= f.text_area :description, class: "form-control movie_description", :placeholder => "write your own opinion about this movie" %>
+              </div>
+              <div class="field">
+                <%= f.label :movie_length %><br>
+                <%= f.text_area :movie_length, class: "form-control movie_movie_length", :placeholder => "give the length of this movie" %>
+              </div>
+              <div class="field">
+                <%= f.label :director %><br>
+                <%= f.text_area :director, class: "form-control movie_director", :placeholder => "write director name" %>
+              </div>
+              <div class="field">
+                <%= f.label :rating %><br>
+                <%= f.text_area :rating, class: "form-control movie_rating", :placeholder => "give the rating with in 10" %>
+              </div>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class=" btn btn-default" data-dismiss="modal" id="mynewmovieclose">Close</button>
+              <%= submit_tag "Create", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>  
+    </div>

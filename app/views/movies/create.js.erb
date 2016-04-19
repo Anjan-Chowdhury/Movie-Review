@@ -1,0 +1,10 @@
+
+alert("post created");
+$("#mynewmovie").modal('hide');
+$(".movie_title").val('');
+$(".movie_description").val('');
+$(".movie_movie_length").val('');
+$(".movie_director").val('');
+$(".movie_rating").val('');
+$("#container_movies").prepend('<%= j render @movie %>');
+

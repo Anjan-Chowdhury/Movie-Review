@@ -1,0 +1,5 @@
+$("#myupdatemovie_<%= @movie.id %>").modal('toggle');
+ $("#movie_<%= @movie.id %>").fadeOut(500, function(){
+	$("#movie_<%= @movie.id %>").replaceWith('<%= j render @movie %>');
+	// $("#container_movies").prepend('<%= j render @movie %>');
+});
